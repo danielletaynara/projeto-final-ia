@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import aima.core.probability.FiniteProbabilityModel;
 import aima.core.probability.bayes.approx.BayesInferenceApproxAdapter;
+import aima.core.probability.bayes.approx.GibbsAsk;
 import aima.core.probability.bayes.approx.LikelihoodWeighting;
 import aima.core.probability.bayes.model.FiniteBayesModel;
 import aima.core.probability.example.BayesNetExampleFactory;
@@ -18,58 +19,73 @@ public class ProblemaB {
 	static AssignmentProposition trabalha;
 	static AssignmentProposition conjugueEstudaIes;
 	static AssignmentProposition irmaoEstudaIes;
+	static AssignmentProposition resideLages;
+	static AssignmentProposition terImovel;
 	static AssignmentProposition terDoencaGraveFamilia;
 	static AssignmentProposition faseEstudo;
 	static AssignmentProposition segundoGrau;
 	
 	public static void main(String[] args) {
 		lerEntrada();
-		calcularProbabilidadeBolsaLikelihoodWeighting();
-		calcularProbabilidadeBolsaGibbsAsk();
+		calcularProbabilidadeBolsa();
 		
 	}
 	
-	private static void calcularProbabilidadeBolsaLikelihoodWeighting() {
+	private static void calcularProbabilidadeBolsa() {
 		System.out.println("Algoritimo Likelihood-Weighting");
 		demoProbabilidadeBolsaLikelihoodWeighting(new FiniteBayesModel(
 				RedeBayesianas.contruirBolsaEstudos(),
 				new BayesInferenceApproxAdapter(new LikelihoodWeighting(),
+						NUM_SAMPLES)));
+		System.out.println("================================");
+		calcularProbabilidadeBolsaGibbsAsk(new FiniteBayesModel(
+				RedeBayesianas.contruirBolsaEstudos(),
+				new BayesInferenceApproxAdapter(new GibbsAsk(),
 						NUM_SAMPLES)));
 	}
 	
 	private static void demoProbabilidadeBolsaLikelihoodWeighting(
 			FiniteProbabilityModel model) {
 		System.out.println("Resultado da Bayesiana a priori.");
-		System.out.println("----------------------------------");
-
+	
 		System.out.println("P("+ rendaFamiliar.toString() +") = " + model.prior(rendaFamiliar));
-		/*System.out.println("P(cavity | toothache) = "
-				+ model.posterior(acavity, atoothache));
+		System.out.println("P("+ trabalha.toString() +") = " + model.prior(trabalha));
+		System.out.println("P("+ conjugueEstudaIes.toString() +") = " + model.prior(conjugueEstudaIes));
+		System.out.println("P("+ irmaoEstudaIes.toString() +") = " + model.prior(irmaoEstudaIes));
+		System.out.println("P("+ resideLages.toString() +") = " + model.prior(resideLages));
+		System.out.println("P("+ terImovel.toString() +") = " + model.prior(terImovel));
+		System.out.println("P("+ terDoencaGraveFamilia.toString() +") = " + model.prior(terDoencaGraveFamilia));
+		System.out.println("P("+ faseEstudo.toString() +") = " + model.prior(faseEstudo));
+		System.out.println("P("+ segundoGrau.toString() +") = " + model.prior(segundoGrau));
+		
 
-		// AIMA3e pg. 492
-		DisjunctiveProposition cavityOrToothache = new DisjunctiveProposition(
-				acavity, atoothache);
-		System.out.println("P(cavity OR toothache) = "
-				+ model.prior(cavityOrToothache));
-
-		// AIMA3e pg. 493
-		System.out.println("P(~cavity | toothache) = "
-				+ model.posterior(anotcavity, atoothache));
-
-		// AIMA3e pg. 493
-		// P<>(Cavity | toothache) = <0.6, 0.4>
-		System.out.println("P<>(Cavity | toothache) = "
-				+ model.posteriorDistribution(ExampleRV.CAVITY_RV, atoothache));
 
 		// AIMA3e pg. 497
 		// P<>(Cavity | toothache AND catch) = <0.871, 0.129>
-		System.out.println("P<>(Cavity | toothache AND catch) = "
-				+ model.posteriorDistribution(ExampleRV.CAVITY_RV, atoothache,
-						acatch));*/
+		System.out.println("P<>(Bolsa) = "
+				+ model.posteriorDistribution(Variaveis.BOLSA, rendaFamiliar, trabalha, conjugueEstudaIes, irmaoEstudaIes, 
+						resideLages, terImovel, terDoencaGraveFamilia, faseEstudo, segundoGrau));
 	}
 	
-	private static void calcularProbabilidadeBolsaGibbsAsk() {
+	private static void calcularProbabilidadeBolsaGibbsAsk(FiniteProbabilityModel model) {
 		System.out.println("Algoritimo Gibbs-Ask");
+		System.out.println("P("+ rendaFamiliar.toString() +") = " + model.prior(rendaFamiliar));
+		System.out.println("P("+ trabalha.toString() +") = " + model.prior(trabalha));
+		System.out.println("P("+ conjugueEstudaIes.toString() +") = " + model.prior(conjugueEstudaIes));
+		System.out.println("P("+ irmaoEstudaIes.toString() +") = " + model.prior(irmaoEstudaIes));
+		System.out.println("P("+ resideLages.toString() +") = " + model.prior(resideLages));
+		System.out.println("P("+ terImovel.toString() +") = " + model.prior(terImovel));
+		System.out.println("P("+ terDoencaGraveFamilia.toString() +") = " + model.prior(terDoencaGraveFamilia));
+		System.out.println("P("+ faseEstudo.toString() +") = " + model.prior(faseEstudo));
+		System.out.println("P("+ segundoGrau.toString() +") = " + model.prior(segundoGrau));
+		
+
+
+		// AIMA3e pg. 497
+		// P<>(Cavity | toothache AND catch) = <0.871, 0.129>
+		System.out.println("P<>(Bolsa) = "
+				+ model.posteriorDistribution(Variaveis.BOLSA, rendaFamiliar, trabalha, conjugueEstudaIes, irmaoEstudaIes, 
+						resideLages, terImovel, terDoencaGraveFamilia, faseEstudo, segundoGrau));
 		
 	}
 	
@@ -103,11 +119,11 @@ public class ProblemaB {
 		switch (lerEntrada){
 			case 1:
 				segundoGrau = new AssignmentProposition(
-	        			Variaveis.FASE_ESTUDO, "Escola Publica");      	
+	        			Variaveis.SEGUNDO_GRAU, "Escola Publica");      	
 	            break;
 	        case 2:
 	        	segundoGrau = new AssignmentProposition(
-	        			Variaveis.FASE_ESTUDO, "Escola Privada");
+	        			Variaveis.SEGUNDO_GRAU, "Escola Privada");
 	            break;
 	        default:
 	        	System.out.println("Opção inválida");
@@ -175,7 +191,7 @@ public class ProblemaB {
 		System.out.println("2 - Não");
 		System.out.println("Digite o número correspondente: ");
 		lerEntrada = cx.nextInt();
-		AssignmentProposition terImovel;
+		
 		switch (lerEntrada){
 			case 1:
 				terImovel = new AssignmentProposition(
@@ -199,7 +215,7 @@ public class ProblemaB {
 		System.out.println("2 - Não");
 		System.out.println("Digite o número correspondente:");
 		lerEntrada = cx.nextInt();
-		AssignmentProposition resideLages;
+		
 		switch (lerEntrada){
 			case 1:
 				resideLages = new AssignmentProposition(
