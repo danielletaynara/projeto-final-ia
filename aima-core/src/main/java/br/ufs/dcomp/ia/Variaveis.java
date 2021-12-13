@@ -214,5 +214,50 @@ public class Variaveis {
 			 new VariavelRedeBaysianaString("Escola Privada", "cinquenta")
 			 ));
 	
+	public static final RandVar RENDA_FAMILIAR_10 = new RandVar("RendaFamiliar",
+			new ArbitraryTokenDomain(new VariavelRedeBaysianaString("Um a tres SM", "dez"), 
+									 new VariavelRedeBaysianaString("Quatro a dez SM", "dez"),
+									 new VariavelRedeBaysianaString("Setima acima", "dez")
+									  ));
+	public static final RandVar RENDA_FAMILIAR_15 = new RandVar("RendaFamiliar",
+			new ArbitraryTokenDomain(new VariavelRedeBaysianaString("Um a tres SM", "quinze"),
+									 new VariavelRedeBaysianaString("Quatro a dez SM", "quinze"),
+									 new VariavelRedeBaysianaString("Dez SM acima", "quinze")
+									 ));
+	public static final RandVar RENDA_FAMILIAR_20 = new RandVar("RendaFamiliar",
+			new ArbitraryTokenDomain(new VariavelRedeBaysianaString("Um a tres SM", "vinte"),
+									 new VariavelRedeBaysianaString("Quatro a dez SM", "vinte"),
+									 new VariavelRedeBaysianaString("Dez SM acima", "vinte")
+									 ));
+	public static final RandVar RENDA_FAMILIAR_25 = new RandVar("RendaFamiliar",
+			new ArbitraryTokenDomain(new VariavelRedeBaysianaString("Um a tres SM", "vinte e cinco"),
+									 new VariavelRedeBaysianaString("Quatro a dez SM", "vinte e cinco"),
+									 new VariavelRedeBaysianaString("Dez SM acima", "vinte e cinco")
+									 ));
+	public static final RandVar RENDA_FAMILIAR_30 = new RandVar("RendaFamiliar",
+			new ArbitraryTokenDomain(new VariavelRedeBaysianaString("Um a tres SM", "trinta"),
+									 new VariavelRedeBaysianaString("Quatro a dez SM", "trinta"),
+									 new VariavelRedeBaysianaString("Dez SM acima", "trinta")
+									 ));
+	public static final RandVar RENDA_FAMILIAR_35 = new RandVar("RendaFamiliar",
+			new ArbitraryTokenDomain(new VariavelRedeBaysianaString("Um a tres SM", "trinta e cinco"),
+									 new VariavelRedeBaysianaString("Quatro a dez SM", "trinta e cinco"),
+									 new VariavelRedeBaysianaString("Dez SM acima", "trinta e cinco")
+									 ));
+	public static final RandVar RENDA_FAMILIAR_40 = new RandVar("RendaFamiliar",
+			new ArbitraryTokenDomain(new VariavelRedeBaysianaString("Um a tres SM", "quarenta"),
+									 new VariavelRedeBaysianaString("Quatro a dez SM", "quarenta"),
+									 new VariavelRedeBaysianaString("Dez SM acima", "quarenta")
+									 ));
+	public static final RandVar RENDA_FAMILIAR_45 = new RandVar("RendaFamiliar",
+			new ArbitraryTokenDomain(new VariavelRedeBaysianaString("Um a tres SM", "quarenta e cinco"),
+									 new VariavelRedeBaysianaString("Quatro a dez SM", "cinquenta"),
+									 new VariavelRedeBaysianaString("Dez SM acima", "quarenta e cinco")
+									 ));
+	public static final RandVar RENDA_FAMILIAR_50 = new RandVar("RendaFamiliar",
+			new ArbitraryTokenDomain(new VariavelRedeBaysianaString("Um a tres SM", "cinquenta"),
+									 new VariavelRedeBaysianaString("Quatro a dez SM", "cinquenta"),
+									 new VariavelRedeBaysianaString("Dez SM acima", "cinquenta")
+									 ));
 
 }

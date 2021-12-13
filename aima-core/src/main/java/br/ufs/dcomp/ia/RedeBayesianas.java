@@ -58,25 +58,74 @@ public class RedeBayesianas {
 				//d3=nunca
 				// d=muito, C=gosta de futebol
 				0.7,
+				//d3=nunca, C=gosta de futebol
+				0.1,
+				//d3=nunca, C=não gosta de futebol
+				0.2,
 				// d=muito, C=não gosta de futebol
 				0.5,
 				// d1=as vezes, C=gosta de futebol
 				0.2,
 				//d1=as vezes, C=não gosta de futebol
-				0.3,
-				//d3=nunca, C=gosta de futebol
-				0.1,
-				//d3=nunca, C=não gosta de futebol
-				0.2
+				0.3
+				
 		}, gostaFutebol);
 
 		return new BayesNet(nacionalidade, idade);
 	}
 	/*-------------------------------------------------------------------------*/
+	public static BayesianNetwork construirBolsa() {
+		FiniteNode bolsa = new FullCPTNode(Variaveis.BOLSA, new double[] {
+				//bolsa=10
+				0.12,
+				// bolsa=15
+				0.11,
+				//bolsa=20
+				0.11, 
+				//bolsa=25
+				0.11,
+				//bolsa=30
+				0.11,
+				//bolsa=35
+				0.11,
+				//bolsa=40
+				0.11,
+				//bolsa=45
+				0.11,
+				//bolsa=50
+				0.11});
+		FiniteNode rendaFamiliar_10 = new FullCPTNode(Variaveis.RENDA_FAMILIAR_10, new double[] {
+				//Um a tres SM
+				//bolsa=10
+				0.01,
+				//Quatro a dez SM
+				//bolsa=10
+				0.29,
+				//Dez SM acima
+				//bolsa=10
+				0.70
+				
+		});
+		FiniteNode rendaFamiliar15 = new FullCPTNode(Variaveis.RENDA_FAMILIAR_15, new double[] {
+				//Um a tres SM
+				// bolsa=15
+				0.03,
+				//Quatro a dez SM
+				// bolsa=15
+				0.32,
+				//Dez SM acima
+				// bolsa=15
+				0.65
+		}, rendaFamiliar_10);
+
+		return new BayesNet(bolsa, rendaFamiliar15);
+	
+		
+	}
 	public static BayesianNetwork contruirBolsaEstudos() {
 		FiniteNode bolsa = new FullCPTNode(Variaveis.BOLSA, new double[] {
 				//bolsa=10
-				0.11,
+				0.12,
 				// bolsa=15
 				0.11,
 				//bolsa=20
