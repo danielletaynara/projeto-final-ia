@@ -166,9 +166,9 @@ public class ProblemaA {
 		AssignmentProposition assisteTV = new AssignmentProposition(
 				Variaveis.ASSISTE_TV, "nunca");
 		
-		System.out.println("Algoritmo da Figura 14.15 Likelihood-Weighting");
+		System.out.println("Algoritmo da Figura 14.15 Gibbs-Ask");
 		System.out.println("Probabilidade a posterior");
-		System.out.println("P(gosta de futebol | americado AND idade maior que 40 AND gosta de assiste as vezes) = "
+		System.out.println("P(gosta de futebol | americado AND idade maior que 40 AND nunca assiste) = "
 				+ model.posterior(gostaFutebol,  idade, assisteTV));
 		
 	}
@@ -184,9 +184,9 @@ public class ProblemaA {
 		AssignmentProposition assisteTV = new AssignmentProposition(
 				Variaveis.ASSISTE_TV, "nunca");
 		
-		System.out.println("Algoritmo da Figura 14.16 Gibbs-Ask");
+		System.out.println("Algoritmo da Figura 14.16 Likelihood-Weighting");
 		System.out.println("Probabilidade a posterior");
-		System.out.println("P(gosta de futebol | americado AND idade maior que 40 AND gosta de assiste as vezes) = "
+		System.out.println("P(gosta de futebol | americado AND idade maior que 40 AND nunca assiste) = "
 				+ model.posterior(gostaFutebol,  idade, assisteTV));
 		
 	}
